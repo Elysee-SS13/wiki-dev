@@ -30,6 +30,7 @@
         )
         v-icon mdi-menu
 
+    homepage(v-if='path === `home`')
     v-main(ref='content')
       template(v-if='path !== `home`')
         v-toolbar(:color='$vuetify.theme.dark ? `grey darken-4-d3` : `grey lighten-3`', flat, dense, v-if='$vuetify.breakpoint.smAndUp')
@@ -319,6 +320,7 @@
 import { StatusIndicator } from 'vue-status-indicator'
 import Tabset from './tabset.vue'
 import NavSidebar from './nav-sidebar.vue'
+import Homepage from './homepage.vue'
 import Prism from 'prismjs'
 import mermaid from 'mermaid'
 import { get, sync } from 'vuex-pathify'
@@ -327,6 +329,7 @@ import ClipboardJS from 'clipboard'
 import Vue from 'vue'
 
 Vue.component('Tabset', Tabset)
+Vue.component('Homepage', Homepage)
 
 Prism.plugins.autoloader.languages_path = '/_assets/js/prism/'
 Prism.plugins.NormalizeWhitespace.setDefaults({
